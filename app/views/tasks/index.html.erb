@@ -11,8 +11,8 @@
   <ul class="list-unstyled                                                                                                      ">
     <% Task.all.each do |task| %>
       <li class="<%= task.done? ? 'done' : '' %>">
-        <i class="fa fa-check-square-o"></i>
-        <i class="fa fa-square-o"></i>
+        <%= fa_icon "check-square-o" %>
+        <%= fa_icon "square-o" %>
         <%= task.title %>
         <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch %>
       </li>
