@@ -7,4 +7,26 @@
       width: 20em;
     }
   }
+
+  ul {
+    li {
+      i.fa-square-o {
+        display: inline-block;
+      }
+
+      i.fa-check-square-o {
+        display: none;
+      }
+
+      &.done {
+        i.fa-square-o {
+          display: none;
+        }
+
+        i.fa-check-square-o {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
