@@ -9,10 +9,6 @@
   }
 
   ul {
-    a {
-      display: none;
-    }
-
     li {
       cursor: pointer;
       font-size: 1.5em;
@@ -20,8 +16,18 @@
       background-color: #FFF;
       transition: background-color 0.3s ease-in;
 
+      a {
+        display: none;
+        color: #c0392b;
+      }
+
       &:hover {
-        background-color: #EEE; 
+        background-color: #EEE;
+
+        a {
+          display: inline-block;
+          float: right;
+        }
       }
 
       i.fa-square-o {

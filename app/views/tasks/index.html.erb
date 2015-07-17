@@ -15,8 +15,9 @@
         <%= fa_icon "check-square-o" %>
         <%= fa_icon "square-o" %>
         <%= task.title %>
+        <%= link_to fa_icon('trash-o'), task_path(task), method: :delete %>
       </li>
-      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch, id: link_id %>
+      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch, id: link_id, class: "hidden" %>
     <% end %>
   </ul>
 </section>
