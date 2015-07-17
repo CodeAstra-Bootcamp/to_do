@@ -1,8 +1,16 @@
-<h1>Tasks</h1>
+<section id="tasks">
+  <h1>Tasks</h1>
 
-<ul>
-  <li>Eat</li>
-  <li>Sleep</li>
-  <li>Code</li>
-  <li>Repeat</li>
-</ul>
+  <div class="well">
+    <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
+      <%= f.input :title, label: false, placeholder: "What do you want to do?", autofocus: true %>
+      <%= f.submit "Create Task", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <ul>
+    <% Task.all.each do |task| %>
+      <li><%= task.title %></li>
+    <% end %>
+  </ul>
+</section>
