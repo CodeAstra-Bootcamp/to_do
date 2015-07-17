@@ -14,6 +14,7 @@
         <i class="fa fa-check-square-o"></i>
         <i class="fa fa-square-o"></i>
         <%= task.title %>
+        <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch %>
       </li>
     <% end %>
   </ul>
