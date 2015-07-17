@@ -10,12 +10,13 @@
 
   <ul class="list-unstyled                                                                                                      ">
     <% Task.all.each do |task| %>
-      <li class="<%= task.done? ? 'done' : '' %>">
+      <% link_id = "update_link_#{task.id}" %>
+      <li class="<%= task.done? ? 'done' : '' %>" data-target-link-id="<%= link_id %>">
         <%= fa_icon "check-square-o" %>
         <%= fa_icon "square-o" %>
         <%= task.title %>
-        <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch %>
       </li>
+      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch, id: link_id %>
     <% end %>
   </ul>
 </section>
