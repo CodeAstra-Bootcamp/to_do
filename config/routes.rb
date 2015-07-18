@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+  authenticated :user do
+    root :to => 'tasks#index', :as => :authenticated_root
+  end
+  root :to => redirect('/users/sign_in')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'tasks#index'
+  # root 'tasks#index'
 
   resources :tasks do
     post 'sort', on: :collection

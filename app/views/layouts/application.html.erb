@@ -8,10 +8,14 @@
 </head>
 <body>
 <%= render 'common/header' %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<div class="container">
-  <%= yield %>
+<div id="content_wrapper">
+  <div class="container">
+    <div class="flash_messages">
+      <%= flash_tag(notice, "notice") %>
+      <%= flash_tag(alert, "alert") %>
+    </div>
+    <%= yield %>
+  </div>
 </div>
 
 </body>
