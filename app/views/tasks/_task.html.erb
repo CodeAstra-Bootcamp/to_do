@@ -1,0 +1,10 @@
+<% link_id = "update_link_#{task.id}" %>
+<li id="task-<%= task.id %>" class="<%= task.done? ? 'done' : '' %>">
+  <span data-target-link-id="<%= link_id %>">
+    <%= fa_icon "check-square-o" %>
+    <%= fa_icon "square-o" %>
+    <%= task.title %>
+  </span>
+  <%= link_to fa_icon('trash-o'), task_path(task), method: :delete, remote: true %>
+</li>
+<%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task, done: task.done?), method: :patch, remote: true, id: link_id, class: "hidden" %>

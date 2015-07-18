@@ -2,24 +2,17 @@
   <h1>Tasks</h1>
 
   <div class="well">
-    <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
+    <%= simple_form_for @new_task, remote: true, html: { class: 'form-inline' } do |f| %>
       <%= f.input :title, label: false, placeholder: "What do you want to do?", autofocus: true %>
       <%= f.submit "Create Task", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-  <ul class="list-unstyled                                                                                                      ">
-    <% @tasks.each do |task| %>
-      <% link_id = "update_link_#{task.id}" %>
-      <li id="task-<%= task.id %>" class="<%= task.done? ? 'done' : '' %>">
-        <span data-target-link-id="<%= link_id %>">
-          <%= fa_icon "check-square-o" %>
-          <%= fa_icon "square-o" %>
-          <%= task.title %>
-        </span>
-        <%= link_to fa_icon('trash-o'), task_path(task), method: :delete, remote: true %>
-      </li>
-      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task, done: task.done?), method: :patch, remote: true, id: link_id, class: "hidden" %>
-    <% end %>
+  <ul class="list-unstyled">
+    <%# @tasks.each do |task| %>
+      <%#= render partial: 'tasks/task', locals: {task: task} %>
+      <%#= render task %>
+    <%# end %>
+    <%= render @tasks %>
   </ul>
 </section>
