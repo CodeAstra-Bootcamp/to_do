@@ -1,5 +1,6 @@
 <% link_id = "update_link_#{task.id}" %>
 <li id="task-<%= task.id %>" class="<%= task.done? ? 'done' : '' %>">
+  <%= fa_icon('bars', class: "handle") %>
   <span class="content" data-target-link-id="<%= link_id %>">
     <%= fa_icon "check-square-o" %>
     <%= fa_icon "square-o" %>

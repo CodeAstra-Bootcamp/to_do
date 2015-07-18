@@ -9,6 +9,11 @@
   }
 
   ul {
+    .ui-state-highlight {
+      height: 40px;
+      background-color: #F5D76E;
+    }
+
     li {
       font-size: 1.5em;
       padding: 0.3em 0.3em;
@@ -37,6 +42,12 @@
           display: inline-block;
           float: right;
         }
+      }
+
+      i.handle {
+        color: #AAA;
+        cursor: move;
+        margin-right: 0.6em;
       }
 
       i.fa {

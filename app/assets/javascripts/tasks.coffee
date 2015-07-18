@@ -5,5 +5,17 @@
   $('#tasks ul li span').unbind('click').click ->
     $('#' + this.dataset.targetLinkId).click()
 
+@serializedTaskIds = ->
+  ids = []
+  for ele in $('#tasks ul li')
+    ids.push(ele.id.split("-")[1])
+  ids
+
 $ ->
   bindMarkingOfTasks()
+  $("#sortable").sortable
+    placeholder: "ui-state-highlight"
+    handle: ".handle"
+    stop: ->
+      $.post("/tasks/sort", {ids: serializedTaskIds()})
+  $("#sortable").disableSelection()
