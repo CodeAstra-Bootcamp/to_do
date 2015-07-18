@@ -11,13 +11,13 @@
   <ul class="list-unstyled                                                                                                      ">
     <% @tasks.each do |task| %>
       <% link_id = "update_link_#{task.id}" %>
-      <li class="<%= task.done? ? 'done' : '' %>" data-target-link-id="<%= link_id %>">
+      <li id="task-<%= task.id %>" class="<%= task.done? ? 'done' : '' %>" data-target-link-id="<%= link_id %>">
         <%= fa_icon "check-square-o" %>
         <%= fa_icon "square-o" %>
         <%= task.title %>
         <%= link_to fa_icon('trash-o'), task_path(task), method: :delete %>
       </li>
-      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch, id: link_id, class: "hidden" %>
+      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch, remote: true, id: link_id, class: "hidden" %>
     <% end %>
   </ul>
 </section>

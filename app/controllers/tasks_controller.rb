@@ -26,7 +26,6 @@ class TasksController < ApplicationController
       @task.done_at = Time.now
     end
     @task.save!
-    redirect_to root_path
   end
 
   def destroy
