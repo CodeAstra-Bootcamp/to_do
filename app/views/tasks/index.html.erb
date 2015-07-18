@@ -1,0 +1,18 @@
+<section id="tasks">
+  <h1>Tasks</h1>
+
+  <div class="well">
+    <%= simple_form_for @new_task, remote: true, html: { class: 'form-inline' } do |f| %>
+      <%= f.input :title, label: false, placeholder: "What do you want to do?", autofocus: true %>
+      <%= f.submit "Create Task", class: "btn btn-primary", data: {disable_with: "Please wait..."} %>
+    <% end %>
+  </div>
+
+  <ul id="sortable" class="list-unstyled">
+    <%# @tasks.each do |task| %>
+      <%#= render partial: 'tasks/task', locals: {task: task} %>
+      <%#= render task %>
+    <%# end %>
+    <%= render @tasks %>
+  </ul>
+</section>

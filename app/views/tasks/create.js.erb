@@ -1,0 +1,5 @@
+<% if @save_success %>
+  $('#tasks ul').append('<%= j render(@task) %>');
+  $('#tasks form')[0].reset();
+  bindMarkingOfTasks();
+<% end %>

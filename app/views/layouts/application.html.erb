@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ToDo</title>
+  <title>Yet Another ToDo App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<%= render 'common/header' %>
+<div id="content_wrapper">
+  <div class="container">
+    <div class="flash_messages">
+      <%= flash_tag(notice, "notice") %>
+      <%= flash_tag(alert, "alert") %>
+    </div>
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

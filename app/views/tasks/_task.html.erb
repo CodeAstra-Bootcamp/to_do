@@ -1,0 +1,11 @@
+<% link_id = "update_link_#{task.id}" %>
+<li id="task-<%= task.id %>" class="<%= task.done? ? 'done' : '' %>">
+  <%= fa_icon('bars', class: "handle") %>
+  <span class="content" data-target-link-id="<%= link_id %>">
+    <%= fa_icon "check-square-o" %>
+    <%= fa_icon "square-o" %>
+    <%= task.title %>
+    <%= done_time_tag(task) %>
+  </span>
+  <%= link_to fa_icon('trash-o'), task_path(task), method: :delete, remote: true %>
+</li>

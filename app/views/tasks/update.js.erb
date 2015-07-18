@@ -1,0 +1,5 @@
+<% if params[:done] == true.to_s %>
+  $('li#task-<%= @task.id %> span.time').remove();
+<% else %>
+  $('li#task-<%= @task.id %> span.content').append('<%= j done_time_tag(@task) %>');
+<% end %>

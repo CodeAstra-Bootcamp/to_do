@@ -1,0 +1,81 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#tasks {
+  form {
+    input.string {
+      width: 20em;
+    }
+  }
+
+  ul {
+    .ui-state-highlight {
+      height: 40px;
+      background-color: #F5D76E;
+    }
+
+    li {
+      font-size: 1.5em;
+      padding: 0.3em 0.3em;
+      background-color: #FFF;
+      transition: background-color 0.3s ease-in;
+
+      span.content {
+        cursor: pointer;
+      }
+
+      span.time {
+        font-size: 0.7em;
+        color: #969696;
+        display: none;
+      }
+      
+      a {
+        display: none;
+        color: #c0392b;
+      }
+
+      &:hover {
+        background-color: #EEE;
+
+        a {
+          display: inline-block;
+          float: right;
+        }
+      }
+
+      i.handle {
+        color: #AAA;
+        cursor: move;
+        margin-right: 0.6em;
+      }
+
+      i.fa {
+        width: 1.1em;
+      }
+
+      i.fa-square-o {
+        display: inline-block;
+      }
+
+      i.fa-check-square-o {
+        display: none;
+      }
+
+
+      &.done {
+        span.time {
+          display: inline-block;
+        }
+
+        i.fa-square-o {
+          display: none;
+        }
+
+        i.fa-check-square-o {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
