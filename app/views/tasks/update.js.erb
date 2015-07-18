@@ -1,8 +1,5 @@
-$('li#task-<%= @task.id %>').toggleClass('done');
 <% if params[:done] == true.to_s %>
   $('li#task-<%= @task.id %> span.time').remove();
 <% else %>
   $('li#task-<%= @task.id %> span.content').append('<%= j done_time_tag(@task) %>');
 <% end %>
-
-$('a#update_link_<%= @task.id %>').attr('href', '<%= task_path(@task, done: @task.done?) %>');

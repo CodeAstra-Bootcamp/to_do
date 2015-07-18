@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   # TODO:
   #   1. Ajax
   #   2. Show time of accomplishment for accomplished tasks
-  #   3. Make Ajax requests responsive
-  #   4. Ability to reorder tasks
+  #   3. Ability to reorder tasks
+  #   4. Make Ajax requests responsive
   #   5. Tasks should belong to user
   #   6. Share tasks and people with whom you share can see the task
   # 

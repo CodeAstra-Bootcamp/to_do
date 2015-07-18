@@ -4,7 +4,7 @@
   <div class="well">
     <%= simple_form_for @new_task, remote: true, html: { class: 'form-inline' } do |f| %>
       <%= f.input :title, label: false, placeholder: "What do you want to do?", autofocus: true %>
-      <%= f.submit "Create Task", class: "btn btn-primary" %>
+      <%= f.submit "Create Task", class: "btn btn-primary", data: {disable_with: "Please wait..."} %>
     <% end %>
   </div>
 

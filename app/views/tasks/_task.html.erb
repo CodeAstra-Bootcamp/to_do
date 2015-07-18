@@ -9,4 +9,3 @@
   </span>
   <%= link_to fa_icon('trash-o'), task_path(task), method: :delete, remote: true %>
 </li>
-<%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task, done: task.done?), method: :patch, remote: true, id: link_id, class: "hidden" %>
