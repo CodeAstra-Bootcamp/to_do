@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   #   3. Ability to reorder tasks
   #   4. Tasks should belong to user
   #   5. Share tasks and people with whom you share can see the task
+  #   6. Make Ajax requests responsive
   # 
-
   def index
     @tasks = Task.all.order(:id)
     @new_task = Task.new
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.done?
+    if params[:done] == true.to_s
       @task.done_at = nil
     else
       @task.done_at = Time.now
