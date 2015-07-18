@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     else
       @task.position = 1
     end
-    @task.save!
+    @save_success = true if @task.save
   end
 
   def update
