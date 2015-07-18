@@ -15,8 +15,14 @@
       background-color: #FFF;
       transition: background-color 0.3s ease-in;
 
-      span {
+      span.content {
         cursor: pointer;
+      }
+
+      span.time {
+        font-size: 0.7em;
+        color: #969696;
+        display: none;
       }
       
       a {
@@ -33,6 +39,10 @@
         }
       }
 
+      i.fa {
+        width: 1.1em;
+      }
+
       i.fa-square-o {
         display: inline-block;
       }
@@ -43,6 +53,10 @@
 
 
       &.done {
+        span.time {
+          display: inline-block;
+        }
+
         i.fa-square-o {
           display: none;
         }
