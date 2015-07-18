@@ -16,9 +16,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     last_task = Task.order(position: :desc).limit(1).first
     if last_task
-      @task.position = 1
-    else
       @task.position = last_task.position + 1
+    else
+      @task.position = 1
     end
     @task.save!
   end
