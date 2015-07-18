@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   # 
 
   def index
+    @tasks = Task.all.order(:id)
     @new_task = Task.new
   end
 

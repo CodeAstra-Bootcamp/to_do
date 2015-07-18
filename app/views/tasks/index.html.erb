@@ -9,7 +9,7 @@
   </div>
 
   <ul class="list-unstyled                                                                                                      ">
-    <% Task.all.each do |task| %>
+    <% @tasks.each do |task| %>
       <% link_id = "update_link_#{task.id}" %>
       <li class="<%= task.done? ? 'done' : '' %>" data-target-link-id="<%= link_id %>">
         <%= fa_icon "check-square-o" %>
