@@ -7,14 +7,17 @@ class TasksController < ApplicationController
   #   5. Tasks should belong to user
   #   6. Share tasks and people with whom you share can see the task
   # 
+
+  before_action :authenticate_user!
+
   def index
-    @tasks = Task.all.order(position: :asc)
-    @new_task = Task.new
+    @tasks = current_user.tasks.order(position: :asc)
+    @new_task = current_user.tasks.new
   end
 
   def create
-    @task = Task.new(task_params)
-    last_task = Task.order(position: :desc).limit(1).first
+    @task = current_user.tasks.build(task_params)
+    last_task = current_user.tasks.order(position: :desc).limit(1).first
     if last_task
       @task.position = last_task.position + 1
     else
@@ -24,7 +27,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
     if params[:done] == true.to_s
       @task.done_at = nil
     else
@@ -35,7 +38,7 @@ class TasksController < ApplicationController
 
   def sort
     ids_params = params[:ids].collect(&:to_i)
-    tasks = Task.where(id: ids_params)
+    tasks = current_user.tasks.where(id: ids_params)
     tasks.each do |task|
       task.update_attribute(:position, (ids_params.index(task.id) + 1))
     end
@@ -44,7 +47,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.where(id: params[:id]).first
+    @task = current_user.tasks.where(id: params[:id]).first
     @task.destroy if @task
   end
 
