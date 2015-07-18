@@ -14,7 +14,12 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.position = Task.order(position: :desc).first.position + 1
+    last_task = Task.order(position: :desc).limit(1).first
+    if last_task
+      @task.position = 1
+    else
+      @task.position = last_task.position + 1
+    end
     @task.save!
   end
 
